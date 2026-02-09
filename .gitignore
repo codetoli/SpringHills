@@ -1,0 +1,44 @@
+# Node.js dependencies
+node_modules/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Build output
+dist/
+build/
+
+# Vite specific
+.vite/
+
+# IDE specific
+.vscode/
+.idea/
+*.sublime-workspace
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Firebase specific
+.firebase/
+
+# Tailwind CSS
+*.css.map
+
+# Public uploads
+public/uploads/
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Miscellaneous
+*.bak
+*.swp
+*.tmp

@@ -1,0 +1,26 @@
+@import "tailwindcss";
+
+/* 1. Import Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+@theme {
+  --font-sans: "Poppins", ui-sans-serif, system-ui, sans-serif;
+  
+  /* Your Underline Animation */
+  --keyframes-underline: {
+    from { width: 0; }
+    to { width: 100%; }
+  };
+  --animation-underline: underline 0.5s ease-out forwards;
+}
+
+@layer base {
+  html, body {
+    font-family: "Poppins", sans-serif;
+    @apply antialiased text-slate-900;
+  }
+
+  button, input, textarea, select {
+    font-family: inherit;
+  }
+}
