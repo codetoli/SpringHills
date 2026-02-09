@@ -477,6 +477,11 @@ function Navbar() {
             </Link>
           </li>
           <li>
+            <Link to="/Program" onClick={closeMobileMenu}>
+              Faculty
+            </Link>
+          </li>
+          <li>
             <Link to="/contact" onClick={closeMobileMenu}>
               Contact
             </Link>
