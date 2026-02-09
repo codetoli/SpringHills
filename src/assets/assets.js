@@ -7,7 +7,7 @@ import Principal from "./Gallery/principal.jpg";
 import Playgroup from "./Gallery/pg.jpg";
 import LowerSchool from "./Gallery/lg.jpg";
 import HighSchool from "./Gallery/Hg.jpg";
-import GetTOKnowUS from "./Gallery/GetTOKnowUS.jpg";
+import GetTOKnowUS from "./Gallery/gtku.jpg";
 
 // Export assets
 export const Assets = {
