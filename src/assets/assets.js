@@ -7,8 +7,7 @@ import Principal from "./Gallery/principal.jpg";
 import Playgroup from "./Gallery/pg.jpg";
 import LowerSchool from "./Gallery/lg.jpg";
 import HighSchool from "./Gallery/Hg.jpg";
-import GetTOKnowUS from "./Gallery/gtku.jpg";
-
+import gettoknowus from "Gallery/gettoknowus.jpg";
 // Export assets
 export const Assets = {
   logo,
@@ -19,7 +18,7 @@ export const Assets = {
   Playgroup,
   LowerSchool,
   HighSchool,
-  GetTOKnowUS,
+  gettoknowus,
 };
 
 export default Assets;
