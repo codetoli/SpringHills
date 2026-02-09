@@ -193,7 +193,7 @@ function HomePage() {
           {/* Image Container: 16:9 Aspect Ratio */}
           <div className="relative w-full md:w-[85%] aspect-video border-2 border-[#1C3F82] rounded-lg overflow-hidden shadow-lg z-10">
             <img
-              src={Assets.GetTOKnowUS}
+              src={Assets.gettoknowus}
               alt="Campus Life"
               className="w-full h-full object-cover"
             />
