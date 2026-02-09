@@ -145,19 +145,43 @@ function Navbar() {
             right: -9999px;
           }
 
+          /* --- ANIMATED ENROLL BUTTON --- */
           .enroll-btn {
             background: #f54900;
             color: white;
-            width: 50px;
+            width: 50px; /* Initial Circle */
             height: 50px;
-            border-radius: 50%;
+            border-radius: 50px;
             border: none;
             font-size: 1.3rem;
             cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            overflow: hidden;
+            white-space: nowrap;
+            padding: 0;
+          }
+
+          .enroll-text {
+            max-width: 0;
+            opacity: 0;
+            font-size: 1rem;
+            font-weight: 600;
             transition: all 0.3s ease;
+          }
+
+          .enroll-btn:hover {
+            width: 160px; /* Rectangle */
+            border-radius: 12px; /* Rounded border like mobile */
+            padding: 0 1.2rem;
+            gap: 10px;
+          }
+
+          .enroll-btn:hover .enroll-text {
+            max-width: 100px;
+            opacity: 1;
           }
 
           .enroll-arrow {
@@ -196,7 +220,6 @@ function Navbar() {
             transform-origin: center;
           }
 
-          /* default state */
           .hamburger span:nth-child(1) {
             top: 4px;
           }
@@ -205,7 +228,6 @@ function Navbar() {
             top: 14px;
           }
 
-          /* OPEN STATE — force both to center and rotate into X */
           .hamburger.open span:nth-child(1) {
             top: 10.5px;
             transform: translateY(-50%) rotate(45deg);
@@ -216,7 +238,6 @@ function Navbar() {
             transform: translateY(-50%) rotate(-45deg);
           }
 
-          /* Mobile Menu */
           .mobile-menu {
             position: fixed;
             top: 0;
@@ -309,14 +330,12 @@ function Navbar() {
             transform: rotate(-45deg);
           }
 
-          /* Hide hamburger in compact mode when transparent */
           .navbar.compact .hamburger {
             opacity: 0;
             pointer-events: none;
             visibility: hidden;
           }
 
-          /* Responsive Design */
           @media (max-width: 1023px) {
             .nav-links-container,
             .enroll-btn-wrapper {
@@ -340,7 +359,6 @@ function Navbar() {
               justify-content: space-between !important;
             }
 
-            /* Show hamburger on mobile even in compact mode */
             .navbar.compact .hamburger {
               display: flex !important;
               position: absolute !important;
@@ -363,20 +381,26 @@ function Navbar() {
         `}</style>
 
         {/* Logo Section */}
-        <div className="logo-section">
-          <div className="logo-box">
-            <img
-              src={Assets.logo}
-              alt="Spring Hill Logo"
-              className="logo-img"
-            />
-          </div>
+        <Link
+          to="/"
+          className="logo-section"
+          style={{ textDecoration: "none" }}
+        >
+          <div className="logo-section">
+            <div className="logo-box">
+              <img
+                src={Assets.logo}
+                alt="Spring Hill Logo"
+                className="logo-img"
+              />
+            </div>
 
-          <div className="logo-text">
-            <h1>Spring Hill</h1>
-            <p>English Boarding School</p>
+            <div className="logo-text">
+              <h1>Spring Hill</h1>
+              <p>English Boarding School</p>
+            </div>
           </div>
-        </div>
+        </Link>
 
         {/* Desktop Navigation Links */}
         <div className={`nav-links-container ${isSticky ? "sticky" : ""}`}>
@@ -394,6 +418,9 @@ function Navbar() {
               <Link to="/notice">Notice</Link>
             </li>
             <li>
+              <Link to="/Program">Faculty</Link>
+            </li>
+            <li>
               <Link to="/contact">Contact</Link>
             </li>
           </ul>
@@ -401,8 +428,9 @@ function Navbar() {
 
         {/* Desktop Enroll Button */}
         <div className="enroll-btn-wrapper">
-          <Link to="/Enroll">
+          <Link to="/Enroll" style={{ textDecoration: "none" }}>
             <button className="enroll-btn">
+              <span className="enroll-text">Enroll Now</span>
               <span className="enroll-arrow">→</span>
             </button>
           </Link>
@@ -456,7 +484,17 @@ function Navbar() {
         </ul>
 
         <button className="mobile-enroll-btn" onClick={closeMobileMenu}>
-          <Link to="/Enroll" className="mobile-enroll-link">
+          <Link
+            to="/Enroll"
+            className="mobile-enroll-link"
+            style={{
+              color: "inherit",
+              textDecoration: "none",
+              display: "flex",
+              alignItems: "center",
+              gap: "8px",
+            }}
+          >
             <span>Enroll Now</span>
             <span className="mobile-enroll-arrow">→</span>
           </Link>

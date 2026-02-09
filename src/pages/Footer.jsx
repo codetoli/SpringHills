@@ -60,7 +60,7 @@ const Footer = () => {
           <h3 className="text-xl text-[#FF6B34] mb-4 font-bold uppercase tracking-tight">
             Quick Links
           </h3>
-          <ul className="space-y-2 text-sm text-white/90">
+          <ul className="grid grid-cols-2 gap-x-4 gap-y-2 text-sm text-white/90">
             <li>
               <Link to="/" className="hover:text-[#FF6B34] transition-colors">
                 Home
@@ -88,14 +88,6 @@ const Footer = () => {
                 className="hover:text-[#FF6B34] transition-colors"
               >
                 Gallery
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="/Latest"
-                className="hover:text-[#FF6B34] transition-colors"
-              >
-                Latest News
               </Link>
             </li>
             <li>
@@ -134,7 +126,7 @@ const Footer = () => {
 
           <div className="flex flex-col gap-3">
             <a
-              href="https://apps.apple.com/np/app/spring-hill-e-b-s/id1565349229"
+              href="https://play.google.com/store/apps/details?id=com.qubexedu.shebs"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -146,7 +138,7 @@ const Footer = () => {
             </a>
 
             <a
-              href="https://play.google.com/store/apps/details?id=com.qubexedu.shebs"
+              href="https://apps.apple.com/np/app/spring-hill-e-b-s/id1565349229"
               target="_blank"
               rel="noopener noreferrer"
             >

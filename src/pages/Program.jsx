@@ -22,7 +22,7 @@ const Faculty = () => {
     },
     {
       img: Assets.HighSchool,
-      title: "+2 Management",
+      title: "+2 Science and Management",
       highlight: "Professional",
       icon: <Briefcase className="text-[#FF6B34]" size={24} />,
       desc: "Preparing students for higher education in management and business administration with real-world practical skills.",

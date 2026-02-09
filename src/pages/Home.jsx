@@ -62,8 +62,7 @@ function HomePage() {
         />
 
         {/* Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#FFFFFF]/10 to-blue-900/60 md:to-blue-500/50" />
-
+        <div className="absolute inset-0 bg-gradient-to-b from-[#1E3A8A]/20 via-[#1E3A8A]/40 to-[#0F172A]/90" />
         {/* Content */}
         <div className="relative z-10 max-w-2xl text-left text-white">
           <h1 className="text-3xl md:text-5xl font-bold mb-6 leading-tight">
