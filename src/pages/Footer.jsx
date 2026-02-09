@@ -16,8 +16,8 @@ const Footer = () => {
       </div>
 
       {/* Content */}
-      <div className="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 mb-10 text-left">
-        {/* Find Us */}
+      <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 mb-10 text-left">
+        {/*Find us*/}
         <div>
           <h3 className="text-xl text-[#FF6B34] mb-4 font-bold uppercase tracking-tight">
             Find Us
