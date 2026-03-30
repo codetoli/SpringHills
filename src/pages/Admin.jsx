@@ -33,20 +33,15 @@ import {
   Mail,
 } from "lucide-react";
 
-// FIXED: Using Environment Variables instead of hardcoded strings
 const CLOUD_NAME = import.meta.env.VITE_CLOUDINARY_CLOUD_NAME;
 const UPLOAD_PRESET = import.meta.env.VITE_CLOUDINARY_UPLOAD_PRESET;
 
 export default function Admin() {
   const [user, setUser] = useState(null);
   const [authLoading, setAuthLoading] = useState(true);
-
-  // Login Form State
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loginError, setLoginError] = useState("");
-
-  // Admin Dashboard State
   const [activeTab, setActiveTab] = useState("notices");
   const [items, setItems] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
@@ -56,7 +51,6 @@ export default function Admin() {
   const [status, setStatus] = useState({ type: "", msg: "" });
   const [editingId, setEditingId] = useState(null);
 
-  // 1. Monitor Auth State
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
@@ -65,7 +59,6 @@ export default function Admin() {
     return () => unsubscribe();
   }, []);
 
-  // 2. Fetch Data (Only if logged in)
   useEffect(() => {
     if (!user) return;
     const q = query(collection(db, activeTab), orderBy("date", "desc"));
@@ -96,17 +89,15 @@ export default function Admin() {
   const handleUpload = async (e) => {
     e.preventDefault();
 
-    // 1. Validation Logic
     const isNotice = activeTab === "notices";
 
-    // If it's a notice, title is MANDATORY.
-    // If it's gallery, title is OPTIONAL.
+    // VALIDATION: Title is only mandatory for Notices
     if (isNotice && !title.trim()) {
-      setStatus({ type: "error", msg: "Notices must have a title." });
+      setStatus({ type: "error", msg: "A title is required for notices." });
       return;
     }
 
-    // File is mandatory for new uploads regardless of tab
+    // File is required for new items
     if (!file && !editingId) {
       setStatus({ type: "error", msg: "Please select a file to upload." });
       return;
@@ -114,10 +105,8 @@ export default function Admin() {
 
     setLoading(true);
     try {
-      let secureUrl =
-        items.find((i) => i.id === editingId)?.[
-          isNotice ? "pdfUrl" : "imageUrl"
-        ] || "";
+      const urlKey = isNotice ? "pdfUrl" : "imageUrl";
+      let secureUrl = items.find((i) => i.id === editingId)?.[urlKey] || "";
 
       if (file) {
         const formData = new FormData();
@@ -130,12 +119,8 @@ export default function Admin() {
         secureUrl = res.data.secure_url;
       }
 
-      // 2. Prepare Data
-      // If notice, use title. If gallery and title empty, use fallback.
-      const finalTitle = isNotice
-        ? title
-        : title.trim() || "Untitled Gallery Image";
-      const urlKey = isNotice ? "pdfUrl" : "imageUrl";
+      // If gallery title is empty, use empty string or a default
+      const finalTitle = title.trim() || (isNotice ? "" : "");
 
       if (editingId) {
         await updateDoc(doc(db, activeTab, editingId), {
@@ -153,12 +138,12 @@ export default function Admin() {
       }
       resetForm();
     } catch (err) {
-      console.error(err);
       setStatus({ type: "error", msg: "Upload failed." });
     } finally {
       setLoading(false);
     }
   };
+
   const resetForm = () => {
     setTitle("");
     setFile(null);
@@ -194,7 +179,6 @@ export default function Admin() {
               Authorized Personnel Only
             </p>
           </div>
-
           <form onSubmit={handleLogin} className="space-y-4">
             <div className="relative">
               <Mail
@@ -224,13 +208,11 @@ export default function Admin() {
                 required
               />
             </div>
-
             {loginError && (
               <div className="bg-red-50 text-red-600 p-4 rounded-xl text-sm font-bold flex items-center gap-2">
                 <AlertCircle size={16} /> {loginError}
               </div>
             )}
-
             <button
               type="submit"
               disabled={loading}
@@ -243,12 +225,6 @@ export default function Admin() {
               )}
             </button>
           </form>
-          <button
-            onClick={() => (window.location.href = "/")}
-            className="w-full mt-6 text-xs font-bold text-gray-400 uppercase tracking-widest hover:text-[#1C3F82]"
-          >
-            Back to Home
-          </button>
         </div>
       </div>
     );
@@ -285,7 +261,7 @@ export default function Admin() {
               key={tab}
               onClick={() => {
                 setActiveTab(tab);
-                setEditingId(null);
+                resetForm();
                 setStatus({ type: "", msg: "" });
               }}
               className={`flex-1 flex items-center justify-center gap-2 py-3 rounded-xl font-bold transition-all capitalize ${activeTab === tab ? "bg-[#1C3F82] text-white shadow-lg" : "text-gray-400"}`}
@@ -316,7 +292,11 @@ export default function Admin() {
               type="text"
               value={title}
               onChange={(e) => setTitle(e.target.value)}
-              placeholder="Title / Caption..."
+              placeholder={
+                activeTab === "notices"
+                  ? "Notice Title (Required)..."
+                  : "Gallery Caption (Optional)..."
+              }
               className="w-full px-6 py-4 bg-[#F8FAFC] border-2 border-gray-50 rounded-2xl focus:outline-none focus:border-[#1C3F82] font-medium"
             />
 
@@ -409,7 +389,7 @@ export default function Admin() {
                     )}
                   </div>
                   <h4 className="font-bold text-gray-700 truncate">
-                    {item.title}
+                    {item.title || "(No Title)"}
                   </h4>
                 </div>
                 <div className="flex items-center gap-2">
