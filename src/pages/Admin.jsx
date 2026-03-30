@@ -95,8 +95,20 @@ export default function Admin() {
 
   const handleUpload = async (e) => {
     e.preventDefault();
-    if (!title || (!file && !editingId)) {
-      setStatus({ type: "error", msg: "Title and file are required." });
+
+    // 1. Validation Logic
+    const isNotice = activeTab === "notices";
+
+    // If it's a notice, title is MANDATORY.
+    // If it's gallery, title is OPTIONAL.
+    if (isNotice && !title.trim()) {
+      setStatus({ type: "error", msg: "Notices must have a title." });
+      return;
+    }
+
+    // File is mandatory for new uploads regardless of tab
+    if (!file && !editingId) {
+      setStatus({ type: "error", msg: "Please select a file to upload." });
       return;
     }
 
@@ -104,7 +116,7 @@ export default function Admin() {
     try {
       let secureUrl =
         items.find((i) => i.id === editingId)?.[
-          activeTab === "notices" ? "pdfUrl" : "imageUrl"
+          isNotice ? "pdfUrl" : "imageUrl"
         ] || "";
 
       if (file) {
@@ -118,28 +130,35 @@ export default function Admin() {
         secureUrl = res.data.secure_url;
       }
 
+      // 2. Prepare Data
+      // If notice, use title. If gallery and title empty, use fallback.
+      const finalTitle = isNotice
+        ? title
+        : title.trim() || "Untitled Gallery Image";
+      const urlKey = isNotice ? "pdfUrl" : "imageUrl";
+
       if (editingId) {
         await updateDoc(doc(db, activeTab, editingId), {
-          title,
-          [activeTab === "notices" ? "pdfUrl" : "imageUrl"]: secureUrl,
+          title: finalTitle,
+          [urlKey]: secureUrl,
         });
         setStatus({ type: "success", msg: "Updated successfully!" });
       } else {
         await addDoc(collection(db, activeTab), {
-          title,
-          [activeTab === "notices" ? "pdfUrl" : "imageUrl"]: secureUrl,
+          title: finalTitle,
+          [urlKey]: secureUrl,
           date: serverTimestamp(),
         });
         setStatus({ type: "success", msg: "Published successfully!" });
       }
       resetForm();
     } catch (err) {
+      console.error(err);
       setStatus({ type: "error", msg: "Upload failed." });
     } finally {
       setLoading(false);
     }
   };
-
   const resetForm = () => {
     setTitle("");
     setFile(null);
