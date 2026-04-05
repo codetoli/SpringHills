@@ -33,7 +33,7 @@ function Navbar() {
             justify-content: space-between;
             padding: 1rem 1rem;
             background: white;
-            border-bottom: 1px solid #e5e5e5;
+            border-bottom: 1px solid transparent;
             position: fixed;
             top: 0;
             left: 0;
@@ -43,9 +43,7 @@ function Navbar() {
           }
 
           .navbar.glass {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(5px);
-            -webkit-backdrop-filter: blur(5px);
+            background: transparent;
             box-shadow: none;
             border-bottom: none;
           }
@@ -146,11 +144,10 @@ function Navbar() {
             right: -9999px;
           }
 
-    
           .enroll-btn {
             background: #f54900;
             color: white;
-            width: 50px; /* Initial Circle */
+            width: 50px;
             height: 50px;
             border-radius: 50px;
             border: none;
@@ -174,8 +171,8 @@ function Navbar() {
           }
 
           .enroll-btn:hover {
-            width: 160px; /* Rectangle */
-            border-radius: 12px; /* Rounded border like mobile */
+            width: 160px;
+            border-radius: 12px;
             padding: 0 1.2rem;
             gap: 10px;
           }
@@ -342,7 +339,12 @@ function Navbar() {
             .enroll-btn-wrapper {
               display: none !important;
             }
-
+  .navbar.glass {
+          background: rgba(255, 255, 255, 0.15);
+          backdrop-filter: blur(8px) saturate(180%);
+          -webkit-backdrop-filter: blur(8px) saturate(180%);
+          border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+        }
             .hamburger {
               display: flex !important;
               flex-direction: column;
@@ -355,10 +357,12 @@ function Navbar() {
               position: static !important;
               left: auto !important;
             }
-
+           
             .navbar.compact {
               justify-content: space-between !important;
             }
+
+         
 
             .navbar.compact .hamburger {
               display: flex !important;
@@ -378,7 +382,22 @@ function Navbar() {
             .mobile-menu-overlay {
               display: none !important;
             }
+                .navbar.glass {
+          background: transparent;
+          backdrop-filter: none;
+          -webkit-backdrop-filter: none;
+        }
           }
+
+
+          @media (max-width: 1023px) {
+      
+      }
+
+      /* Desktop always transparent, no change needed */
+      @media (min-width: 1024px) {
+      
+      }
         `}</style>
 
         {/* Logo Section */}
