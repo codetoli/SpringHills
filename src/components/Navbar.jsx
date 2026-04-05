@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom"; // ✅ React Router Link
+import { Link } from "react-router-dom";
 import Assets from "../assets/assets.js";
 
 function Navbar() {
@@ -43,8 +43,9 @@ function Navbar() {
           }
 
           .navbar.glass {
-            background: transparent;
-            backdrop-filter: none;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
             box-shadow: none;
             border-bottom: none;
           }
@@ -145,7 +146,7 @@ function Navbar() {
             right: -9999px;
           }
 
-          /* --- ANIMATED ENROLL BUTTON --- */
+    
           .enroll-btn {
             background: #f54900;
             color: white;
