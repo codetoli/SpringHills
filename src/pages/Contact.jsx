@@ -30,6 +30,8 @@ const Contact = () => {
   };
 
 
+
+  
   return (
     <div className="bg-slate-50 min-h-screen font-['Poppins']">
       <Banner
