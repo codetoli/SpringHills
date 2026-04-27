@@ -3,7 +3,7 @@ import { Link } from "react-router-dom"; // Recommended for the Home link
 
 const Banner = ({ title, highlightText, subtitle, breadcrumb }) => {
   return (
-    <section className="relative bg-[#1C3F82] pt-24 pb-12 md:pt-32 md:pb-20 px-4 md:px-6 overflow-hidden">
+    <section className="relative bg-[#1C3F82] pt-16 pb-8 md:pt-20 md:pb-12 px-6 md:px-8 overflow-hidden">
       {/* Decorative Background Elements - Scaled for mobile */}
       <div className="absolute inset-0 opacity-10 pointer-events-none select-none">
         <div className="absolute transform -rotate-12 -left-5 -top-5 text-white text-6xl md:text-9xl font-bold whitespace-nowrap">

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import ScrollToTop from "./components/ScrollToTop";
@@ -13,17 +13,29 @@ import Notice from "./pages/Notice";
 import Program from "./pages/Program";
 import Admin from "./pages/Admin";
 import Login from "./pages/login";
-
-// ... (all your other imports)
+import AdmissionPopup from "./components/AdmissionPopup";
 
 const App = () => {
   const location = useLocation();
   const isAdminPage = location.pathname.startsWith("/admin");
 
+  const [showPopup, setShowPopup] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowPopup(true);
+    }, 800); // slight delay
+
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <>
       <ScrollToTop />
+
       {!isAdminPage && <Navbar />}
+
+      {showPopup && <AdmissionPopup onClose={() => setShowPopup(false)} />}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/About" element={<About />} />
@@ -38,9 +50,9 @@ const App = () => {
         <Route path="/login" element={<Login />} />
       </Routes>
       {!isAdminPage && <Footer />}
+      {showPopup && <AdmissionPopup onClose={() => setShowPopup(false)} />}
     </>
   );
 };
 
-// --- CHECK THIS LINE BELOW ---
 export default App;
