@@ -45,7 +45,6 @@ const AdmissionPopup = ({ onClose }) => {
           ✕
         </button>
 
-        {/* Banner Image 3:5 ratio / max 60vh */}
         <div className="w-[320px] sm:w-[360px] max-h-[70vh] aspect-[3/5]">
           <img
             src={admissionBanner}
