@@ -13,7 +13,7 @@ const Contact = () => {
     e.preventDefault();
     setStatus("sending");
 
-    emailjs
+   emailjs
       .sendForm(
         "service_m7rw9bl",
         "template_74921tm",
@@ -29,6 +29,9 @@ const Contact = () => {
       );
   };
 
+
+
+  
   return (
     <div className="bg-slate-50 min-h-screen font-['Poppins']">
       <Banner
