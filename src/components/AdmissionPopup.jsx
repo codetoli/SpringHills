@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import admissionBanner from "../assets/Gallery/Admission.jpg";
+import admissionBanner from "../assets/Gallery/Admission12.jpg";
 
 const AdmissionPopup = ({ onClose }) => {
   const navigate = useNavigate();
@@ -45,11 +45,11 @@ const AdmissionPopup = ({ onClose }) => {
           ✕
         </button>
 
-        <div className="w-[320px] sm:w-[360px] max-h-[70vh] aspect-[3/5]">
+        <div className="w-full max-w-[90vw] sm:max-w-[560px] max-h-[70vh] overflow-hidden">
           <img
             src={admissionBanner}
             alt="Admission Open"
-            className="w-full h-full object-cover"
+            className="w-full h-auto max-h-[70vh] object-contain"
           />
         </div>
 
