@@ -77,7 +77,7 @@ function Navbar() {
             object-fit: contain;
           }
 
-          .logo-text h1 {
+          .logo-text .logo-title {
             font-size: 1.25rem;
             font-weight: 700;
             color: #000;
@@ -416,7 +416,7 @@ function Navbar() {
             </div>
 
             <div className="logo-text">
-              <h1>Spring Hill</h1>
+              <p className="logo-title">Spring Hill</p>
               <p>English Boarding School</p>
             </div>
           </div>
@@ -432,13 +432,13 @@ function Navbar() {
               <Link to="/about">About</Link>
             </li>
             <li>
-              <Link to="/Gallery">Gallery</Link>
+              <Link to="/gallery">Gallery</Link>
             </li>
             <li>
               <Link to="/notice">Notice</Link>
             </li>
             <li>
-              <Link to="/Program">Faculty</Link>
+              <Link to="/program">Faculty</Link>
             </li>
             <li>
               <Link to="/contact">Contact</Link>
@@ -448,7 +448,7 @@ function Navbar() {
 
         {/* Desktop Enroll Button */}
         <div className="enroll-btn-wrapper">
-          <Link to="/Enroll" style={{ textDecoration: "none" }}>
+          <Link to="/enroll" style={{ textDecoration: "none" }}>
             <button className="enroll-btn">
               <span className="enroll-text">Enroll Now</span>
               <span className="enroll-arrow">→</span>
@@ -487,7 +487,7 @@ function Navbar() {
             </Link>
           </li>
           <li>
-            <Link to="/Gallery" onClick={closeMobileMenu}>
+            <Link to="/gallery" onClick={closeMobileMenu}>
               Gallery
             </Link>
           </li>
@@ -497,7 +497,7 @@ function Navbar() {
             </Link>
           </li>
           <li>
-            <Link to="/Program" onClick={closeMobileMenu}>
+            <Link to="/program" onClick={closeMobileMenu}>
               Faculty
             </Link>
           </li>
@@ -510,7 +510,7 @@ function Navbar() {
 
         <button className="mobile-enroll-btn" onClick={closeMobileMenu}>
           <Link
-            to="/Enroll"
+            to="/enroll"
             className="mobile-enroll-link"
             style={{
               color: "inherit",

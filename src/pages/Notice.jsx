@@ -139,7 +139,7 @@ export default function Notice() {
                     {fileLink ? (
                       <img
                         src={thumbUrl}
-                        alt=""
+                        alt={notice.title ? `Notice: ${notice.title}` : "School notice"}
                         className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700"
                         onError={(e) => {
                           e.target.src =

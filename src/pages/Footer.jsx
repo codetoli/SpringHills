@@ -68,7 +68,7 @@ const Footer = () => {
             </li>
             <li>
               <Link
-                to="/About"
+                to="/about"
                 className="hover:text-[#FF6B34] transition-colors"
               >
                 About Us
@@ -76,7 +76,7 @@ const Footer = () => {
             </li>
             <li>
               <Link
-                to="/Program"
+                to="/program"
                 className="hover:text-[#FF6B34] transition-colors"
               >
                 Programs
@@ -84,7 +84,7 @@ const Footer = () => {
             </li>
             <li>
               <Link
-                to="/Gallery"
+                to="/gallery"
                 className="hover:text-[#FF6B34] transition-colors"
               >
                 Gallery
@@ -92,7 +92,7 @@ const Footer = () => {
             </li>
             <li>
               <Link
-                to="/Notice"
+                to="/notice"
                 className="hover:text-[#FF6B34] transition-colors"
               >
                 Notice
@@ -100,7 +100,7 @@ const Footer = () => {
             </li>
             <li>
               <Link
-                to="/Enroll"
+                to="/enroll"
                 className="hover:text-[#FF6B34] transition-colors"
               >
                 Enroll Now
@@ -108,7 +108,7 @@ const Footer = () => {
             </li>
             <li>
               <Link
-                to="/Contact"
+                to="/contact"
                 className="hover:text-[#FF6B34] transition-colors"
               >
                 Contact Us
@@ -132,7 +132,7 @@ const Footer = () => {
             >
               <img
                 src={Assets.PlayStore}
-                alt="App Store"
+                alt="Get it on Google Play"
                 className="max-w-[160px] hover:opacity-80 transition-opacity"
               />
             </a>
@@ -144,7 +144,7 @@ const Footer = () => {
             >
               <img
                 src={Assets.AppStore}
-                alt="Google Play"
+                alt="Download on the App Store"
                 className="max-w-[160px] hover:opacity-80 transition-opacity"
               />
             </a>
