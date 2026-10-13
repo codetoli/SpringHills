@@ -54,6 +54,10 @@ export default function Gallery() {
               Loading Media...
             </p>
           </div>
+        ) : images.length === 0 ? (
+          <p className="py-24 text-center text-gray-500">
+            Photos from school events will appear here soon.
+          </p>
         ) : (
           <div className="columns-2 sm:columns-2 lg:columns-3 gap-6 space-y-6">
             {images.map((img) => (
