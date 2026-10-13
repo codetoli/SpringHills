@@ -42,3 +42,5 @@ public/uploads/
 *.bak
 *.swp
 *.tmp
+# SSR bundle used only by scripts/prerender.mjs
+dist-ssr/

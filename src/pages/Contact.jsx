@@ -41,7 +41,7 @@ const Contact = () => {
         subtitle="Let's start a conversation about your child's future."
       />
 
-      <main className="max-w-7xl mx-auto px-4 sm:px-8 py-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-8 py-16">
         {/* TOP SECTION: FORM & INFO (Grid 2 on Mobile/Desktop) */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-10 items-stretch">
           {/* ADMISSION ENQUIRY CARD */}
@@ -196,7 +196,7 @@ const Contact = () => {
             </div>
           </div>
         </section>
-      </main>
+      </div>
     </div>
   );
 };

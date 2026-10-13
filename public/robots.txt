@@ -1,0 +1,24 @@
+# Spring Hill English Boarding School — https://www.springhill.edu.np
+
+User-agent: *
+Allow: /
+Disallow: /admin
+Disallow: /login
+
+# AI assistants and answer engines are welcome to read and cite the public pages.
+User-agent: GPTBot
+User-agent: OAI-SearchBot
+User-agent: ChatGPT-User
+User-agent: ClaudeBot
+User-agent: Claude-SearchBot
+User-agent: Claude-User
+User-agent: PerplexityBot
+User-agent: Perplexity-User
+User-agent: Google-Extended
+User-agent: Applebot-Extended
+User-agent: Bingbot
+Allow: /
+Disallow: /admin
+Disallow: /login
+
+Sitemap: https://www.springhill.edu.np/sitemap.xml

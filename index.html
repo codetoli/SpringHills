@@ -2,29 +2,24 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>springhill</title>
+    <meta name="theme-color" content="#1C3F82" />
+    <link rel="icon" type="image/png" href="/logo.png" />
+    <link rel="apple-touch-icon" href="/logo.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
+    <!-- Replaced per page at build time by scripts/prerender.mjs, and kept
+         current in the browser by src/components/RouteSeo.jsx. -->
+    <!--seo:start-->
+    <title>Spring Hill English Boarding School, Banepa | Since 1988</title>
+    <meta name="description" content="Spring Hill English Boarding School (SHEBS) in Nala, Banepa, Kavre offers Pre-School to Class 12 education. Quality education since 1988." />
+    <link rel="canonical" href="https://www.springhill.edu.np/" />
+    <!--seo:end-->
   </head>
-
 
   <body>
     <div id="root"></div>
-    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-
-    <!-- ✅ Optional auto-redirect after login -->
-    <script>
-      if (window.netlifyIdentity) {
-        window.netlifyIdentity.on("init", user => {
-          if (!user) {
-            window.netlifyIdentity.on("login", () => {
-              document.location.href = "/admin/";
-            });
-          }
-        });
-      }
-    </script>
-
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>

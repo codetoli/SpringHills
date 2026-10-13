@@ -7,6 +7,7 @@ import campus3 from "../assets/campus3.jpeg";
 import campus4 from "../assets/campus4.jpeg";
 import Assets from "../assets/assets";
 import Notice from "./LatestNews";
+import Faq from "../components/Faq";
 import messagefromprincipals from "../components/messagefromprincipals";
 
 function HomePage() {
@@ -75,7 +76,7 @@ function HomePage() {
             develop the intellectual, ethical, and interpersonal foundations
             students need to be constructive contributors to the world.
           </p>
-          <Link to="/Program">
+          <Link to="/program">
             <div className="inline-block bg-[#FF6B34] px-6 py-3 md:px-8 md:py-4 rounded-full font-semibold text-sm md:text-base shadow-lg hover:bg-[#e55a28] transition-colors cursor-pointer mb-10">
               EXPLORE Programs
             </div>
@@ -236,6 +237,9 @@ function HomePage() {
           </div>
         </div>
       </section>
+
+      <Faq />
+
 
       {/* Latest News Section */}
       <section className="py-16 px-6 md:px-24 bg-white">
