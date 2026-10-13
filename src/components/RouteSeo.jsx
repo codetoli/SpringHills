@@ -28,12 +28,18 @@ function setCanonical(href) {
   el.setAttribute("href", href);
 }
 
+// Pages that exist but are not for search: they keep a real name in the tab.
+const PRIVATE_TITLES = { "/login": "Staff Login", "/admin": "Admin", "/latest": "Latest News" };
+
 const RouteSeo = () => {
   const { pathname } = useLocation();
 
   useEffect(() => {
     const page = pageFor(pathname);
-    const title = page ? page.title : `Page not found | ${SITE.name}`;
+    const privateTitle = PRIVATE_TITLES[pathname.toLowerCase().replace(/\/+$/, "")];
+    const title = page
+      ? page.title
+      : `${privateTitle || "Page not found"} | ${SITE.name}`;
     const description = page ? page.description : SITE.description;
     const url = absoluteUrl(page ? page.path : "/");
 

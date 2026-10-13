@@ -57,6 +57,8 @@ const Contact = () => {
               <form ref={formRef} onSubmit={sendEmail} className="space-y-5">
                 <input
                   name="name"
+                  aria-label="Full name"
+                  autoComplete="name"
                   placeholder="Full Name"
                   required
                   className="w-full px-5 py-4 rounded-2xl bg-gray-50 border border-gray-100 focus:border-[#FF6B34] focus:bg-white outline-none transition-all"
@@ -65,6 +67,8 @@ const Contact = () => {
                   <input
                     name="email"
                     type="email"
+                    aria-label="Email"
+                    autoComplete="email"
                     placeholder="Email"
                     required
                     className="w-full px-5 py-4 rounded-2xl bg-gray-50 border border-gray-100 focus:border-[#FF6B34] focus:bg-white outline-none transition-all"
@@ -72,16 +76,20 @@ const Contact = () => {
                   <input
                     name="phone"
                     type="tel"
+                    aria-label="Phone"
+                    autoComplete="tel"
                     placeholder="Phone"
                     className="w-full px-5 py-4 rounded-2xl bg-gray-50 border border-gray-100 focus:border-[#FF6B34] focus:bg-white outline-none transition-all"
                   />
                 </div>
                 <select
                   name="program"
+                  aria-label="Program"
                   required
+                  defaultValue=""
                   className="w-full px-5 py-4 rounded-2xl bg-gray-50 border border-gray-100 focus:border-[#FF6B34] focus:bg-white outline-none transition-all text-gray-500"
                 >
-                  <option value="" disabled selected>
+                  <option value="" disabled>
                     Select Program
                   </option>
                   <option value="Pre-School">Pre-School</option>
@@ -91,6 +99,7 @@ const Contact = () => {
                 </select>
                 <textarea
                   name="message"
+                  aria-label="Your message"
                   rows="2"
                   placeholder="Your Message"
                   required
@@ -104,6 +113,20 @@ const Contact = () => {
                   {status === "sending" ? "Sending..." : "Submit Enquiry"}{" "}
                   <Send size={18} />
                 </button>
+                <p role="status" aria-live="polite" className="text-sm text-center min-h-5">
+                  {status === "success" && (
+                    <span className="text-green-700 font-medium">
+                      Thank you! Your enquiry has been sent. Our counselor will contact you soon.
+                    </span>
+                  )}
+                  {status === "error" && (
+                    <span className="text-red-600 font-medium">
+                      Sorry, your enquiry could not be sent. Please call{" "}
+                      <a href="tel:+9779841103044" className="underline">9841103044</a> or email{" "}
+                      <a href="mailto:springhill607@gmail.com" className="underline">springhill607@gmail.com</a>.
+                    </span>
+                  )}
+                </p>
               </form>
             </div>
           </div>
@@ -130,9 +153,14 @@ const Contact = () => {
                     <p className="text-xs font-bold text-white/50 uppercase tracking-widest">
                       Our Campus
                     </p>
-                    <p className="text-lg font-medium">
+                    <a
+                      href="https://maps.google.com/?q=Spring+Hill+English+Boarding+School+Banepa"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-lg font-medium hover:text-[#FF6B34] transition-colors"
+                    >
                       Banepa-4, Kavre, Nepal
-                    </p>
+                    </a>
                   </div>
                 </div>
 
@@ -144,9 +172,12 @@ const Contact = () => {
                     <p className="text-xs font-bold text-white/50 uppercase tracking-widest">
                       Email Support
                     </p>
-                    <p className="text-lg font-medium">
+                    <a
+                      href="mailto:springhill607@gmail.com"
+                      className="text-lg font-medium break-all hover:text-[#FF6B34] transition-colors"
+                    >
                       springhill607@gmail.com
-                    </p>
+                    </a>
                   </div>
                 </div>
 
@@ -159,7 +190,13 @@ const Contact = () => {
                       Call Helpline
                     </p>
                     <p className="text-lg font-medium">
-                      9841103044 / 9860865441
+                      <a href="tel:+9779841103044" className="hover:text-[#FF6B34] transition-colors">
+                        9841103044
+                      </a>{" "}
+                      /{" "}
+                      <a href="tel:+9779860865441" className="hover:text-[#FF6B34] transition-colors">
+                        9860865441
+                      </a>
                     </p>
                   </div>
                 </div>
@@ -178,12 +215,13 @@ const Contact = () => {
         {/* BOTTOM SECTION: FULL WIDTH MAP */}
         <section className="mt-10">
           <div className="overflow-hidden rounded-[2.5rem] shadow-2xl border-4 border-white bg-white h-[450px] relative">
-            <div className="overflow-hidden rounded-xl shadow-md">
+            <div className="h-full overflow-hidden rounded-[2.25rem]">
               <iframe
                 title="Spring Hill School Location"
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6663.672968213963!2d85.50126501574405!3d27.65430084631961!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb0f002732c291%3A0xe38c519dc929c2aa!2sSpring%20Hill%20School%2C%20Banepa%2C%20Nala!5e0!3m2!1sen!2snp!5m2!1sen!2snp"
-                className="w-full h-175 border-0"
+                className="w-full h-full border-0"
                 loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
                 allowFullScreen
               />
             </div>
