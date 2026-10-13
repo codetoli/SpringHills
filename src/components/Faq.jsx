@@ -7,13 +7,16 @@ import { FAQ } from "../seo/faq";
 const Faq = () => (
   <section aria-labelledby="faq-heading" className="py-16 px-6 md:px-24 bg-slate-50">
     <div className="max-w-4xl mx-auto">
-      <h2
-        id="faq-heading"
-        className="text-3xl md:text-4xl font-bold text-[#1C3F82] text-center mb-3"
-      >
-        Frequently Asked Questions
-      </h2>
-      <p className="text-center text-slate-600 mb-10">
+      <div className="text-center">
+        <h2
+          id="faq-heading"
+          className="text-3xl md:text-4xl font-bold text-[#1C3F82] relative inline-block"
+        >
+          Frequently Asked Questions
+          <span className="absolute left-1/2 -translate-x-1/2 -bottom-3 h-[3px] bg-[#FF6B34] w-full" />
+        </h2>
+      </div>
+      <p className="text-center text-slate-600 mt-6 mb-10">
         Quick answers about admissions, classes and visiting Spring Hill.
       </p>
 

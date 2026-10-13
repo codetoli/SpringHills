@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import ScrollToTop from "./components/ScrollToTop";
@@ -15,21 +15,10 @@ import Program from "./pages/Program";
 import Admin from "./pages/Admin";
 import Login from "./pages/login";
 import NotFound from "./pages/NotFound";
-import AdmissionPopup from "./components/AdmissionPopup";
 
 const App = () => {
   const location = useLocation();
   const isAdminPage = location.pathname.toLowerCase().startsWith("/admin");
-
-  const [showPopup, setShowPopup] = useState(false);
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setShowPopup(true);
-    }, 800); // slight delay
-
-    return () => clearTimeout(timer);
-  }, []);
 
   // Route paths are lowercase, and the router matches them case-insensitively,
   // so the old /About-style links keep working while every link, the sitemap
@@ -41,8 +30,6 @@ const App = () => {
 
       {!isAdminPage && <Navbar />}
 
-      {/* Rendered once: it used to be rendered twice, stacking two popups. */}
-      {showPopup && !isAdminPage && <AdmissionPopup onClose={() => setShowPopup(false)} />}
       <main>
         <Routes>
           <Route path="/" element={<Home />} />

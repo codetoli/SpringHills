@@ -65,7 +65,7 @@ const MessageFromPrincipal = () => {
                   className="w-full h-full object-cover"
                 />
               </div>
-              <div className="absolute w-[105%] h-[105%] border-2 border-[#FF6B34] rounded-full z-0 opacity-70 sm:opacity-100" />
+              <div className="absolute -inset-2.5 rounded-full border-4 border-[#FF6B34] z-0" />
             </div>
           </div>
         </div>
